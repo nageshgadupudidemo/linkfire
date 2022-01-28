@@ -17,12 +17,19 @@
    ```sh
    chmod +x /opt/apache-tomcat-<version>/bin/startup.sh 
    chmod +x /opt/apache-tomcat-<version>/bin/shutdown.sh
-   ```
    
+   
+   chmod +x /opt/tomcat/bin/startup.sh 
+   chmod +x /opt/tomcat/bin/shutdown.sh
+   ```
 3. create link files for tomcat startup.sh and shutdown.sh 
    ```sh
    ln -s /opt/apache-tomcat-<version>/bin/startup.sh /usr/local/bin/tomcatup
    ln -s /opt/apache-tomcat-<version>/bin/shutdown.sh /usr/local/bin/tomcatdown
+   tomcatup
+   
+   ln -s /opt/tomcat/bin/startup.sh /usr/local/bin/tomcatup
+   ln -s /opt/tomcat/bin/shutdown.sh /usr/local/bin/tomcatdown
    tomcatup
    ```
   
