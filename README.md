@@ -1,4 +1,5 @@
 Linkfire - Assignment
+======================
 
 This is Just a Demo Application - Just to Show Case the DevOps CI/CD Pipeline of an deployed application.
 
@@ -10,24 +11,26 @@ GitHub : https://github.com/nageshgadupudidemo
 git clone https://github.com/nageshgadupudidemo
 
 i just build a complete CI- CD flow of env's from scratch.
-so thought to share all tools installation documentation steps.
-i too added all the issues & work around steps fallowed to be fallowed.
+so thought to share all Devops tools installation documentation steps.
+i too added all the issues & work around steps to be fallowed.
 
+
+under linkfire Repository , you can find individual folder for each Devops tools used in this Demo.
+i have added all the necessary instructions/steps for installation and usage for each of them.
+
+
+
+Git :
 
 Jenkins Server :
 
-
- 
-
-Maven : pom.xml
+Maven : 
 
 Tomcat Server :
 
 Docker Host :
 
-Dockerfile
-
+Ansible :
 
 Kubernetes :
 
-regapp-deploy.yml ; regapp-service.yml

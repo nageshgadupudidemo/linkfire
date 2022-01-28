@@ -49,7 +49,8 @@ Hence install docker, start docker services and add ansadmin to the docker group
    usermod -aG docker ansadmin
 
    ```
-7. Create a directory /etc/ansible and create an inventory file called "hosts" add control node and managed hosts IP addresses to it. 
+7. Create a directory /etc/ansible and create an inventory file called "hosts" 
+add control node and managed hosts IP addresses to it. 
  
 ### Validation test
 
