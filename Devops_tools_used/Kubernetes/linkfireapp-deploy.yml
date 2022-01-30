@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkfire-deployment
+spec:
+  selector:
+    matchLabels:
+      app: linkfire-devops-project
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
+  template:
+    metadata:
+      labels:
+        app: linkfire-devops-project
+    spec:
+      containers:
+      - name: linkfire-devops-project
+        image: nageshgadupudi1aws/linkfireapp
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+
+

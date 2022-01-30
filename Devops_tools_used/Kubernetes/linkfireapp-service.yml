@@ -3,13 +3,12 @@ kind: Service
 metadata:
   name: valaxy-service
   labels:
-    app: regapp 
+    app: valaxy-devops-project
 spec:
   selector:
-    app: regapp 
-
+    app: valaxy-devops-project
+  type: LoadBalancer
   ports:
     - port: 8080
       targetPort: 8080
-
-  type: LoadBalancer
+      nodePort: 31200

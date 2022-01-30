@@ -1,0 +1,9 @@
+# 1 : Createting docker container using command module 
+---
+- hosts: all
+  become: true
+
+  tasks:
+  - name: creating a docker image using docker command
+    command: docker run -d --name linkfire-container -p 8080:8080 linkfire-image
+	

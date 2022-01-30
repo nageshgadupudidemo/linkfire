@@ -1,8 +1,5 @@
 # Ansible integration with Jenkins
 
-### Prerequisites:
-
-
 ### Integration Setps
 
 Install "publish Over SSH"

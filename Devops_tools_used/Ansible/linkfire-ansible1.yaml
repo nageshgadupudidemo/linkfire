@@ -1,0 +1,8 @@
+---
+- hosts: ansible
+ 
+  tasks:
+  - name: building docker image
+    command: docker build -t linkfireapp:latest .
+    args:
+      chdir: /opt/docker

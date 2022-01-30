@@ -1,0 +1,6 @@
+---
+- hosts: docker
+ 
+  tasks:
+  - name: create Container on docker host
+    command: docker run -d --name linkfireapp-container -p 8082:8080 nageshgadupudi1aws/linkfireapp:latest

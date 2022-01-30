@@ -1,6 +1,6 @@
 # Setup Kubernetes on Amazon EKS
 
-You can follow same procedure in the official  AWS document [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)   
+Amazon EKS – eksctl(https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)   
 
 #### Pre-requisites: 
   - an EC2 Instance 
@@ -16,7 +16,7 @@ You can follow same procedure in the official  AWS document [Getting started wit
    curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl
    chmod +x ./kubectl
    mv ./kubectl /usr/local/bin 
-   kubectl version --short --client
+   kubectl version
    ```
 2. Setup eksctl   
    a. Download and extract the latest release   
@@ -30,31 +30,26 @@ You can follow same procedure in the official  AWS document [Getting started wit
    ```
   
 3. Create an IAM Role and attache it to EC2 instance    
-   `Note: create IAM user with programmatic access if your bootstrap system is outside of AWS`   
+   
    IAM user should have access to   
    IAM   
    EC2   
    CloudFormation  
-   Note: Check eksctl documentaiton for [Minimum IAM policies](https://eksctl.io/usage/minimum-iam-policies/)
+   
+   eksctl documentaiton : [Minimum IAM policies](https://eksctl.io/usage/minimum-iam-policies/)
    
 4. Create your cluster and nodes 
    ```sh
-   eksctl create cluster --name cluster-name  \
-   --region region-name \
-   --node-type instance-type \
-   --nodes-min 2 \
-   --nodes-max 2 \ 
-   --zones <AZ-1>,<AZ-2>
-   
-   example:
-   eksctl create cluster --name valaxy-cluster \
-      --region ap-south-1 \
-   --node-type t2.small \
+     
+   eksctl create cluster --name linkfire  \
+   --region us-east-1 \
+   --node-type t2.small
+
     ```
 
 5. To delete the EKS clsuter 
    ```sh 
-   eksctl delete cluster valaxy --region ap-south-1
+   eksctl delete cluster linkfire --region us-east-1
    ```
    
 6. Validate your cluster using by creating by checking nodes and by creating a pod 
@@ -64,18 +59,19 @@ You can follow same procedure in the official  AWS document [Getting started wit
    ```
    
    #### Deploying Nginx pods on Kubernetes
+   
 1. Deploying Nginx Container
     ```sh
-    kubectl create deployment  demo-nginx --image=nginx --replicas=2 --port=80
-    # kubectl deployment regapp --image=valaxy/regapp --replicas=2 --port=8080
+    kubectl deployment linkfire --image=nageshgadupudi1aws/linkfireapp --replicas=2 --port=8080
     kubectl get all
     kubectl get pod
    ```
-
-1. Expose the deployment as service. This will create an ELB in front of those 2 containers and allow us to publicly access them.
+   
+  
+2. Expose the deployment as service. This will create an ELB in front of those 2 containers and allow us to publicly access them.
    ```sh
-   kubectl expose deployment demo-nginx --port=80 --type=LoadBalancer
-   # kubectl expose deployment regapp --port=8080 --type=LoadBalancer
+   
+   kubectl expose deployment linkfire --port=8080 --type=LoadBalancer
    kubectl get services -o wide
    ```
 

@@ -1,0 +1,14 @@
+---
+- hosts: ansible
+ 
+  tasks:
+  - name: building docker image
+    command: docker build -t linkfireapp:latest .
+    args:
+      chdir: /opt/docker
+
+ - name: create tag to push image onto dockerhub
+    command: docker tag linkfireapp:latest nageshgadupudi1aws/linkfireapp:latest
+
+ - name: push docker image
+    command: docker push nageshgadupudi1aws/linkfireapp:latest

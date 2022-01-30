@@ -1,0 +1,9 @@
+# 1 : Createting docker image using command module 
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: building a docker image
+    command: docker build -t linkfire-image .
+    args:
+      chdir: /opt/docker
